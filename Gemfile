@@ -16,6 +16,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'capybara', '~> 2.6'
   gem 'simplecov', :require => false
+  gem 'factory_girl_rails', '~> 4.5'
+  gem 'ffaker', '~> 2.2'
 end
 
 group :development do

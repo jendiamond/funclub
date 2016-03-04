@@ -1,5 +1,13 @@
 require 'simplecov'
-SimpleCov.start
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+])
+
+SimpleCov.start 'rails' do
+  coverage_dir 'spec/simplecov'
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

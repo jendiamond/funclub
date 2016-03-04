@@ -1,3 +1,12 @@
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter "/spec/"
+  add_group "Controllers", "/controllers/"
+  add_group "Models", "/models/"
+  coverage_dir "public/coverage"
+end
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?

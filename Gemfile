@@ -7,6 +7,7 @@ gem 'ffaker', '~> 2.2'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'rails', '4.2.5'
+gem 'rails_best_practices', '~> 1.16'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sqlite3'

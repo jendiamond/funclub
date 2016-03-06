@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 # ruby-2.3.0
 
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'factory_girl_rails', '~> 4.5'
 gem 'ffaker', '~> 2.2'

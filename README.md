@@ -1,4 +1,4 @@
-### Calisthenic Fun Club
+### Fun Club
 
 I have a workout club with my friends I called Calisthenic Fun Club.
 Instead of joining a gym we workout together.

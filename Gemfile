@@ -10,7 +10,6 @@ gem 'rails', '4.2.5'
 gem 'rails_best_practices', '~> 1.16'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 
@@ -20,10 +19,16 @@ end
 
 group :development do
   gem 'spring'
+  gem 'sqlite3'
   gem 'web-console', '~> 2.0'
 end
 
 group :test do
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'simplecov', :require => false
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end

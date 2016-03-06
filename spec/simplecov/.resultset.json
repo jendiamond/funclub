@@ -1,0 +1,20 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/vagrant/funclub/app/controllers/application_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/vagrant/funclub/app/models/workout.rb": [
+        0,
+        0
+      ],
+      "/vagrant/funclub/app/helpers/application_helper.rb": [
+        0,
+        0
+      ]
+    },
+    "timestamp": 1457157433
+  }
+}

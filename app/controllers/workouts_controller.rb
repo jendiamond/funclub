@@ -16,14 +16,14 @@ class WorkoutsController < ApplicationController
     end
   end
 
+  def show
+    @workout = Workout.find(params[:id])
+  end
+
   private
 
   def workout_params
     params.require(:workout).permit(:date_time, :activity, :location, :description)
-  end
-
-  def actionname
-    @types = Workout.select(:activity).distinct
   end
 
 end

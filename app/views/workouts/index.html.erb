@@ -1,1 +1,8 @@
-<h1> Index page</h1>
+<h1>This Weeks Workout</h1>
+<% @workouts.each do |workout| %>
+  When: <%= workout.date_time %> <br/>
+  What: <%= workout.activity %> <br/>
+  Where: <%= workout.location %> <br/>
+  <%= workout.description %> <br/>
+  <hr/>
+<% end %>

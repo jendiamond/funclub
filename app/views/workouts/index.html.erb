@@ -1,8 +1,16 @@
-<h1>This Weeks Workout</h1>
+<h2>Calisthenic Fun Club - This Weeks Workout</h2>
+<h4 class='btn'><%= button_to 'NEW WORKOUT', new_workout_path, method: :get, class:' btn btn-success' %></h4>
+<hr/ style="border-top: 4px double #FF1493; ">
+
+<div class="row">
 <% @workouts.each do |workout| %>
-  When: <%= workout.date_time %> <br/>
-  What: <%= workout.activity %> <br/>
-  Where: <%= workout.location %> <br/>
-  <%= workout.description %> <br/>
+  <div class="col-md-4">
+  <h3><%= link_to workout.date_time.strftime("%A, %B %d |  %I:%M %P"), workout %></h3>
+  <h4><%= workout.activity %></h4>
+  <h4><%= workout.location %></h4>
   <hr/>
+  </div>
 <% end %>
+</div>
+<hr/ style="border-top: 4px double #FF1493; ">
+<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=34.052235&lon=-118.243683&name=Los Angeles"> </iframe>

@@ -5,7 +5,7 @@
 <div class="row">
 <% @workouts.each do |workout| %>
   <div class="col-md-4">
-  <h3><%= link_to workout.date_time.strftime("%A, %B %d |  %I:%M %P"), workout %></h3>
+  <h4 style="font-weight: 600;"><%= link_to workout.date_time.strftime("%A, %B %d |  %I:%M %P"), workout %></h4>
   <h4><%= workout.activity %></h4>
   <h4><%= workout.location %></h4>
   <hr/>

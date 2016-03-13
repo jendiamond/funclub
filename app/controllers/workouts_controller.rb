@@ -3,6 +3,22 @@ class WorkoutsController < ApplicationController
 
   def index
     @workouts = Workout.all.order('created_at ASC')
+
+    if params[:search].present?
+      @workouts = Workout.near(params[:search], 1000, :order => :address)
+    else
+      @workouts = Workout.all
+    end
+    @hash = Gmaps4rails.build_markers(@workouts) do |workout, marker|
+      marker.lat workout.latitude
+      marker.lng workout.longitude
+      marker.infowindow workout.activity
+      marker.picture({
+        "width" => 32,
+        "height" => 32})
+      marker.json({ activity: workout.activity})
+    end
+
   end
 
   def new
@@ -47,7 +63,7 @@ class WorkoutsController < ApplicationController
   end
 
   def workout_params
-    params.require(:workout).permit(:date_time, :activity, :location, :description)
+    params.require(:workout).permit(:date_time, :activity, :location, :description, :address)
   end
 
 end

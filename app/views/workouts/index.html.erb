@@ -1,5 +1,12 @@
 <h2>Calisthenic Fun Club - This Weeks Workout</h2>
 <h4 class='btn'><%= button_to 'NEW WORKOUT', new_workout_path, method: :get, class:' btn btn-success' %></h4>
+
+<%= form_tag workouts_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+<% end %>
 <hr/ style="border-top: 4px double #FF1493; ">
 
 <div class="row">
@@ -7,10 +14,32 @@
   <div class="col-md-4">
   <h4 style="font-weight: 600;"><%= link_to workout.date_time.strftime("%A, %B %d |  %I:%M %P"), workout %></h4>
   <h4><%= workout.activity %></h4>
-  <h4><%= workout.location %></h4>
+  <h4><%= workout.address %></h4>
   <hr/>
   </div>
 <% end %>
 </div>
 <hr/ style="border-top: 4px double #FF1493; ">
+
+<div style='width: 800px; margin: auto;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<!-- map -->
+
+<script src="//maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region="></script> 
+<script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js"></script>
+<script type="text/javascript">
+  var handler = Gmaps.build('Google');
+  handler.buildMap({ internal: {id: 'custom_style'}, provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+
+<hr/ style="border-top: 4px double #FF1493; ">
+
+<!-- weather -->
+
 <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=34.052235&lon=-118.243683&name=Los Angeles"> </iframe>

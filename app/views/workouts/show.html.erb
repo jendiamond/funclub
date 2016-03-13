@@ -1,9 +1,20 @@
 <h4>Workout on <%= @workout.date_time.strftime("%A, %B %d |  %I:%M %P") %></h4>
 
 <p>Activity: <%= @workout.activity %></p>
-<p>Location: <%= @workout.location %></p>
+<p>Address: <%= @workout.address %></p>
+<p>Latitude: <%= @workout.latitude %></p>
+<p>Longitude: <%= @workout.longitude %></p>
 <p><%= @workout.description %></p>
 <p><%= link_to 'EDIT', edit_workout_path %> | 
   <%= link_to 'DELETE', workout_path(@workout), method: :delete, 
       data: {confirm: 'Are you sure you want to delete your workout?'} %> | 
-  <%= link_to 'BACK', workouts_path %></p>
+<%= link_to 'BACK', workouts_path %></p>
+
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@workout.latitude}%2C#{@workout.longitude}" %>
+
+<h4>Other Calisthenic Fun Club Workout Locations Nearby</h4>
+<ul>
+<% for address in @workout.nearbys(10) %>
+  <li><%= link_to address.address, address %> (<%= address.distance.round(2) %> miles)</li>
+<% end %>
+</ul>

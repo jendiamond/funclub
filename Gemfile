@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'factory_girl_rails', '~> 4.5'
 gem 'ffaker', '~> 2.2'
 gem 'geocoder'

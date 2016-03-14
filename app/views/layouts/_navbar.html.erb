@@ -1,0 +1,52 @@
+<nav class='navbar navbar-default' role='navigation'
+  <div class='container'
+    <div class='navbar-header'>
+      <%= link_to 'Calisthenic Fun Club', root_url, class: 'navbar-brand' %>
+    </div>
+    <div class='collapse navbar-collapse' id='#bs-example-navbar-collapse-1'>
+      <ul class='nav navbar-nav'>
+        <li class='active'><a href='#'>Link</a></li>
+        <li class='dropdown'>
+          <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Dropdown<b class='caret'></b></a>
+          <ul class='dropdown-menu'>
+            <li><a href='#'>Action A</a></li>
+            <li><a href='#'>Another B</a></li>
+            <li><a href='#'>Action C</a></li>
+            <li class='divider'></li>
+            <li><a href='#'>Action D</a></li>
+            <li class='divider'></li>
+            <li><a href='#'>Action E</a></li>
+          </ul>
+        </li>
+      </ul>
+
+<div class='navbar-form navbar-left'>
+<%= form_tag workouts_path, :method => :get do  %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search for Nearby Workouts", :name => nil %>
+  </p>
+<% end %>
+</div>
+
+      <ul class='nav navbar-nav navbar-right'>
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.email, edit_user_registration_path %></li>
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Log In', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+

@@ -7,7 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
+  <%= render 'layouts/navbar' %>
+  <div class='container'>
+<!--     <% if notice %><div class='alert alert-info'><%= notice %></div><% end %>
+    <% if notice %><div class='alert alert-warning'><%= alert %></div><% end %> -->
+
+    <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>" style="width:300px; background:#CFDBC5">
+    <a href="#" data-dismiss="alert" class="close">×</a>
+    <ul>
+      <li>
+        <%= value %>
+      </li>
+    </ul>
+  </div>
+<% end %>
+
     <%= yield %>
   </div>
 </body>
